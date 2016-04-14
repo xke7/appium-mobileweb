@@ -1,7 +1,7 @@
 Appium Python - Mobile Web Testing
 ---
 ## Install
-### Install appium [?](http://appium.io/getting-started.html?lang=en)
+Install appium [?](http://appium.io/getting-started.html?lang=en)
 
 ```shell
 # with npm
@@ -11,7 +11,7 @@ npm install -g appium
 appium
 ```
 
-### Install python bindings
+Install python bindings
 
 ```shell
 # with pip
@@ -19,17 +19,13 @@ pip install Appium-Python-Client
 pip install pytest
 ```
 
-### Android set up [?](http://appium.io/slate/en/master/?python#android-setup)
+Android set up [?](http://appium.io/slate/en/master/?python#android-setup)
 
 ```shell
 export ANDROID_HOME=$your_local_sdk
 ```
 
-## Run test
-
-```shell
-py.test google_test.py
-```
+## Usage
 General steps:
 
 - Connect your device to the PC
@@ -37,7 +33,7 @@ General steps:
 - Open terminal and start appium in one tab `$ appium`
 - Open another tab and run test `py.test google_test.py`
 
-## Write tests
+## Writing tests
 See API documents for appium client library `python`
 [Appium Python](http://appium.io/slate/en/master/?python#appium-client-libraries)
 
