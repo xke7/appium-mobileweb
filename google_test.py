@@ -1,27 +1,36 @@
-import os
-import glob
 import unittest
-from time import sleep
 
 from appium import webdriver
 
-PLATFORM_VERSION = '6.0'
-DEVICE_NAME = 'Nexus_5'
+ANDROID_DEVICE_POOL = {
+    'nexus5': {
+        'platformVersion': '6.0',
+        'deviceName': 'Nexus_5',
+        'browserName': 'Chrome'
+    },
+    'emulator': {
+        'platformVersion': '6.0',
+        'deviceName': 'Android Emulator',
+        'browserName': 'Chrome'
+    }
+}
+
+TEST_DEVICE = ANDROID_DEVICE_POOL['nexus5']
+
 
 class AndroidWebViewTests(unittest.TestCase):
-
-    def setUp(self):       
-        desired_caps = {          
+    def setUp(self):
+        desired_caps = {
             'platformName': 'Android',
-            'platformVersion': PLATFORM_VERSION,
-            'deviceName': DEVICE_NAME,
-            'browserName': 'Chrome'
+            'platformVersion': TEST_DEVICE['platformVersion'],
+            'deviceName': TEST_DEVICE['deviceName'],
+            'browserName': TEST_DEVICE['browserName']
         }
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub',
                                        desired_caps)
 
     def test_mobileweb(self):
-        self.driver.get('http://www.google.com');
+        self.driver.get('http://www.google.com')
         search_input = self.driver.find_element_by_name('q')
         search_input.clear()
         search_input.send_keys('international celebration')
